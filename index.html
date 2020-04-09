@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> buy online fresh coffeebeans</title>
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <script>
+            var w = window.innerWidth;
+            window.onload = function(){
+                alert("Some effects won't work on Internet version! Show in App for best result!");
+                $("#startText").animate({"opacity":"1"},800);
+            }            
+            function sideMenuSlideIn() {
+                w = window.innerWidth;
+                $("#overlay").css({"display":"block"});
+                if(w > 1000){
+                    $("#sideMenuContainer").animate({"width":1000 / 100 * 60},300);
+                }
+                else{
+                    $("#sideMenuContainer").animate({"width":"70%"},300);
+                }
+            }
+            function  sideMenuSlideOut() {
+                $("#overlay").css({"display":"none"});
+                $("#sideMenuContainer").animate({"width":"0%"},300);
+            }
+            function getScrollPos(){
+                scrollT = $("html,body").scrollTop();
+                h = window.innerHeight;
+                for(i = 1;i <= 4;i++){
+                    if(scrollT +60 >= $(".s"+i).position().top && scrollT + 60 <= $(".s"+i).position().top + $(".s"+i).outerHeight()){
+                        sectionNumber = i;
+                        $(".chapter i").css({"color":"#888888"});
+                        $("#c"+sectionNumber+" i").css({"color":"#FAFAFA"});
+                    }
+                }
+                for(j = 1;j <= 3;j++){
+                        sI_Height = $("#sI"+j).innerHeight();
+                        if(scrollT + (h - sI_Height / 2) > $("#sI"+j).position().top){
+                            $("#sI"+j).animate({"opacity":"1"});
+                    }
+                }
+            }
+            function scrollToSection(pSection){
+                section = pSection;
+                $("html,body").animate({
+                    scrollTop: $(".s"+section).position().top - 60},400); 
+            } 
+            function checkEmail(){
+                field = document.getElementById("emailInt");
+                if( field.checkValidity() == true){
+                    $("#emailInt").css({"border-bottom-color":"orange"});      
+                }
+                else{
+                    $("#emailInt").val("");
+                    $("#emailInt").css({"border-bottom-color":"red"});   
+                }
+            } 
+            function checkTel(){                
+                field = document.getElementById("telInt");
+                if( field.checkValidity() == true){
+                    $("#telInt").css({"border-bottom-color":"orange"});      
+                }
+                else{
+                    $("#telInt").val("");
+                    $("#telInt").css({"border-bottom-color":"red"});   
+                }
+            } 
+        </script>
+        <style>
+            body {
+                background-color:#DBDBDB; 
+                margin:0;  
+                padding:0; 
+                font-family:'PT sans',sans-serif;
+            }
+            #container{
+                width:100%;
+                max-width:900px;
+                height:300px;
+                margin:0;
+                background-color:orange;
+            }
+            @media screen and (min-width: 900px){
+                #container,#menuTop,#sideMenuContainer{margin-left:calc(100% / 2 - 450px)}
+            }
+            #sideMenuContainer{
+                position:fixed ;
+                top:0;
+                left:0;
+                width:0%;
+                height:100%;
+                background-color:#444444;
+                overflow-x:hidden;
+                overflow-y:auto;
+                z-index:5;
+            }
+            #overlay{
+                position:fixed ;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                background-color:rgba(50,50,50,0.7);
+                z-index:4;
+                display:none;
+            }
+            #menuTop{
+                position:fixed;
+                top:0;
+                left:0;
+                width:100%;
+                max-width:900px;
+                height:60px;
+                background-color:#FAFAFA;
+                color:orange;
+                z-index:3;
+            }
+            #menuIcon{
+                position:absolute ;
+                top:16px;
+                left:5%;
+                width:15%;
+                height:28px;
+                max-width:80px;
+                cursor:pointer;
+            }
+            .iconBar{
+                width:100%;
+                height:4px;
+                margin-bottom:8px;
+                background-color:orange;
+                box-shadow:1px 1px 2px #999999;
+            }
+            #menuHeader{
+                width:100%;
+                height:50px;
+                padding-top:5px;
+                background-color:#444444;
+                color:white;
+                font-size:30px;
+                text-align:center;
+                box-sizing:border-box;
+            }
+            .chapter{
+                height:50px;
+                margin-bottom:20px;
+                color:#FAFAFA;
+                font-size:1.2em;
+                border-top:1px solid #888888;
+                border-bottom:1px solid #888888;
+                cursor:pointer;
+            }
+            .chapter i{
+                height:100%;
+                margin-left:3%;
+                padding-top:7px;
+                color:#888888;
+                font-size:1.8em;
+                vertical-align:bottom;
+                box-sizing:border-box;
+            }
+            .chapter p{
+                position:relative; 
+                top:-12px;
+                height:100%;
+                margin:0;
+                display:inline;
+                letter-spacing:4px;
+            }
+            .chapter:hover{
+                background-color:#3E3E3E;
+            }
+            #line{
+                position:absolute ;
+                top:8%;
+                left:27%;
+                width:1px;
+                height:calc(60px - 16%);
+                background-color:#777777;
+            }
+            #pageTitle{
+                margin-left:30%;
+                margin-top:10px;
+                padding-top:0;
+                font-size:30px;
+                font-weight:lighter;
+                font-family: 'Play', san-serif;
+            }
+            #imageContainer{
+                position:fixed;
+                top:60px;
+                width:100%;
+                max-width:330px;
+                height:auto;
+                padding-top:300px;
+                background: url("https://cultureguru.my/en/wp-content/uploads/sites/4/2016/12/20160906-Coffee-EN-10-1068x558.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                display:inline-block ;
+                box-sizing:border-box;
+                z-index:-1;
+            }
+            #imageContainer hr{
+                border:0px solid white;
+                border-top:7px solid white; 
+                border-radius:0px;
+            }
+            #contentContainer{
+                margin-top:390px;
+                z-index:100;
+            }
+            #startText{
+                width:90%;
+                margin-left:5%;
+                margin-top:20px;
+                margin-bottom:20px;
+                color:white;
+                font-weight:bold;
+                text-align:center;
+                font-size:55px;
+                opacity:0;
+                font-family: 'Play', san-serif;
+            }
+            .section{
+                width:100%;
+                margin:0;
+                box-sizing:border-box ;
+                display:inline-block ;
+            }
+            .section .header{
+                width:100%;
+                margin-bottom:0;
+                text-align:center;
+                font-size:25px;
+            }
+            .section .textSection{
+                padding:0 3% 0 4%;
+        margin:0;
+        margin-bottom:10px;
+        box-sizing:border-box;
+            }
+        @media screen and (min-width:700px){
+        #aboutContainer .textSection,#servicesContainer .textSection{
+            width:48%;
+            display:inline-block;
+            padding-right:0;
+        }
+        }
+        @media screen and (min-width:700px){
+        #aboutContainer .textSection,#servicesContainer .textSection{
+            width:48%;
+            display:inline-block;
+            padding-right:0;
+        }
+        }
+            .section span{
+                font-weight:bold;
+            }
+            .serviceInfoContainer{
+                width:90%;
+                min-height:300px;
+                margin-left:5%;
+                margin-bottom:20px;
+                padding:5px 2% 18px 2%;
+                color:#444444;
+                border:1px solid #CCCCCC;
+                text-align:justify ;
+                box-sizing:border-box ;
+                opacity:0;
+            }
+            #serviceImage{
+                width:96%;
+                height:200px;
+                margin:0;
+                padding:5px 2% 18px 2%;
+                background: url("https://i.postimg.cc/sX9mwdsh/photo2.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .serviceInfoContainer .header{
+                width:100%;
+                margin:0;
+                padding:10px 0 0 0;
+                font-weight:lighter;
+                text-align:center;
+            }
+        .serviceInfoContainer hr{
+        max-width:300px;
+        }
+            @media screen and (min-width:450px){
+                #serviceImage{
+                    width:350px;
+                    margin-left:calc(96% / 2 - 175px);
+                }
+            }
+            @media screen and (min-width:650px){
+                #serviceImage{
+                    margin:0 3% 1px 0;
+                    float:left;
+                }
+                .serviceInfoContainer hr{
+                    width:4s0%;
+                }
+            }
+            #servicesContainer,#contactContainer{
+                background-color:#FAFAFA;
+                color:#444444;
+            }
+            #aboutContainer{
+                background-color:#444444;
+                color:white;
+            }
+            form{
+                width:80%;
+                margin:20px 0 20px 10%;
+                padding:0;
+                padding-top:20px;
+                border-radius:10px 0 10px 0;
+            }
+            input{
+                width:100%;
+                height:30px;
+                padding:4px 0 0 4px;
+                border:none;
+                border-bottom:2px solid #444444;
+                background-color:#FAFAFA;
+                outline:none;
+                box-shadow:none;
+                box-sizing:border-box;
+                transition: 0.2s ease-in;
+                font-size:.8em;
+                -webkit-appearance:textfield;
+                -moz-appearance:textfield;
+            }	
+            input , textarea{
+                font-family:'PT sans',sans-serif;
+            }
+            form div{
+                position:relative ;
+                width:80%;
+                margin-bottom:50px;
+                margin-left:10%;
+            }
+            form div label{
+                position:absolute  ;
+                left:4px;
+                top:4px;
+                transition: 0.2s ease-in;
+                pointer-events:none;
+                font-size:1em;
+            }
+            form div label em{
+                transition: 0.2s ease-in;
+            }
+            input:focus, input:valid, textarea:focus, textarea:valid{
+                border-bottom-color:orange;
+            }
+            input:focus ~ label, input:valid ~ label{
+                top:32px;
+            }
+            input:focus ~ label em, input:valid ~ label em, textarea:focus ~ label em, textarea:valid ~ label em{
+                color:#FAFAFA;
+            }            
+            textarea:focus ~ label, textarea:valid ~ label{
+                top:-1em;
+            }
+            @media screen and (min-width:700px){
+                form div{
+                    display:inline-block;
+                    width:30%;
+                    margin-left:12%;
+                }
+            }
+            textarea{
+                width:100%;
+                height:80px;
+                padding:2px 0 0 4px;
+                border:none;
+                border-bottom:2px solid #444444;
+                background-color:#FAFAFA;
+                outline:none;
+                box-shadow:none;
+                transition: 0.2s ease-in;
+                font-size:.8em;
+                resize:none;
+            }
+            button[type="submit"]{
+                width:30%;
+                height:30px;
+                margin-left:35%;
+                margin-bottom:20px;
+                background:#444444;
+                border:none;
+                color:white;
+                box-shadow:0 0 6px #555555;
+                border-radius:5px 0 5px 0;
+                cursor:pointer;
+            }
+            button[type="submit"]:active{
+                width:25%;
+                height:25px;
+                margin: 2.5px 0 22.5px 37.5%;
+            }
+            #footer{
+                width:100%;
+                margin:0;
+                padding:0;
+                padding-top:8px;
+                padding-bottom:5px;
+                background-color:#444;
+                color:white;
+                font-size:0.7em;
+                text-align:center;
+            }
+            #follow{
+                width:100%;
+                color:#FAFAFA;
+                text-align:center;
+            }
+            #follow p,h3{
+                margin:0;
+                color:#FAFAFA;                
+            }
+            #follow a{
+                text-decoration:none;
+                font-size:2em;
+                color:#FAFAFA;
+            }
+        </style>
+    </head>
+    <body onscroll="getScrollPos()">
+        <div id="container">
+            <div id="sideMenuContainer">
+                <div id="menuHeader">MR FRESH&nbsp;BEANS</div>
+                <div class="chapter" id="c1" onclick="scrollToSection('1')"><i class="fas fa-home"></i>&nbsp;<p>home</p></div>
+                <div class="chapter" id="c2" onclick="scrollToSection('2')"><i class="fas fa-wrench"></i>&nbsp;<p>our products</p></div>
+                <div class="chapter" id="c3" onclick="scrollToSection('3')"><i class="fas fa-info-circle"></i>&nbsp;<p>About</p></div>
+                <div class="chapter" id="c4" onclick="scrollToSection('4')"><i class="fas fa-file-alt"></i>&nbsp;<p>Contact</p></div>
+            </div>
+            <div id="overlay" onclick="sideMenuSlideOut()"></div>
+            <div id="menuTop">
+                <p id="pageTitle">MR FRESHBEANS</p>
+                <div id="line"></div>
+                <div id="menuIcon" onclick="sideMenuSlideIn()">
+                    <div class="iconBar"></div>
+                    <div class="iconBar"></div>
+                    <div class="iconBar"></div>
+                </div>
+            </div>
+            <div id="imageContainer" class="s1">
+                <hr width="90%" color="white">
+                <p id="startText">Welcome<br>to<br>MR.FRESH BEANS</p>
+
+
+                <hr width="90%" color="white">
+            </div>
+            <div id="contentContainer" style="margin-top:390px">
+                <div id="servicesContainer" class="section s2">
+                    <p class="header">Our products</p>
+                    <hr width="70%" style="border:0px solid white;border-top:2px solid #888888">
+                    <p class="textSection"><strong>Although we have a dedicated sourcing team for green beans and have invested in establishing quality roasting parameters, we know that a lot more steps still have to fall into place to brew a good cup.</strong><br>
+<hr>
+ This is why we have worked hard to create coffee training centres to impart leading procedures such as equipping baristas with assessing and reporting tools for precision brewing, and cupping every single batch that is roasted to ensure consistent quality.
+We are consistently researching, testing and implementing best practices throughout our business to raise the bar. Making refractometers essential for our cafe brewing. holding advanced sensory learnings for junior roasters, and experimenting with processing at the farm level are just some of the ways that our highly skilled team is constantly evolving the way Indian coffee is treated, experienced or communicated about. Sourcing the best coffee beans does not guarantee good coffee.
+<hr></p></div>
+<div class="serviceInfoContainer" id="sI1"><p class="header">fresh exported coffee beans</p><hr width="70%" style="border:0px solid white;border-top:2px solid #888888"><div id="serviceImage"></div><p><b>Regular price:</b>   RS. 400.00 + Free domestic shipping on all orders.<br>
+Our darkest coffee yet, this French roast is crackling when it comes out of the roaster. This coffee is for those of our customers who like their coffee bold and with a definite bite.<br>
+Roast Level: Very Dark (well in to 2nd crack)<br>
+Tasting Notes: Strong, Cocoa, Bitter Sweet </p></div>
+
+<div class="serviceInfoContainer" id="sI2"><p class="header"> african coffee beans</p><hr width="70%" style="border:0px solid white;border-top:2px solid #888888"><div id="serviceImage"></div><p><b>Regular price:  </b>RS. 800.00 + Free domestic shipping on all orders.<br>
+This year we have worked closely with Thogarihunkal Estate on processing so that only the ripest cherries were picked.  The resulting coffee is extremely clean and sweet and is ideal for a balanced single estate espresso.<br>
+Roast Level: Medium <br>
+Tasting  Notes: Cherry, Caramel, Roasted Nuts</p></div>
+
+<div class="serviceInfoContainer" id="sI3"><p class="header"> southern coffee beans</p><hr width="70%" style="border:0px solid white;border-top:2px solid #888888"><div id="serviceImage"></div><p><b> 
+<b>Regular price:   </b>RS. 900.00 + Free domestic shipping on all orders.<br>
+Attikan Estate's arabica coffee comes from the Bilgiri Hills in Karnataka. Sweet with fruity overtones and balanced acidity. This is the darkest of our standard medium roasts and recommended for espresso lovers.<br>
+Roast Level: Medium Dark (In to 2nd crack)
+Tasting Notes: Dark Chocolate, Figs, Roasted Almond  </p></div>
+           
+               <div id="aboutContainer" class="section s3">
+                    <p class="header">About us</p>
+                    <hr width="70%" style="border:0px solid white;border-top:2px solid #888888">
+                    <p class="textSection"><strong>Our mission since we started has stayed simple: introduce our customers to the estates we directly buy our great tasting coffee from, roast the beans with care, and make high quality coffee more accessible through our cafes and our website.</strong>
+<br>
+ The coffee we roast is the coffee we like to drink, and we hope you like it too. 
+<hr>
+<br>
+We are consistently researching, testing and implementing best practices throughout our business to raise the bar. Making refractometers essential for our cafe brewing. holding advanced sensory learnings for junior roasters, and experimenting with processing at the farm level are just some of the ways that our highly skilled team is constantly evolving the way Indian coffee is treated, experienced or communicated about.
+Sourcing the best coffee beans does not guarantee good coffee.</p>
+</div>
+    
+
+ <div id="contactContainer" class="section s4">
+                    <p class="header">Contact us</p>
+                    <hr width="70%" style="border:0px solid white;border-top:2px solid #888888">
+                    <p class="textSection"><strong>Email us at: mrfreshbeans@gmil.com </strong>
+<br>            
+Reach us at: 
+Delhi - Khasra 258, Lane 3, Westend Marg, Saidulajab, New Delhi 110030<br>
+Contact number: +(91) 96060-47077<br>
+Mumbai - Unit no 20/22, Laxmi Woollen Mills, Opposite Khazana furniture, Shakti Mill Lane, Mahalaxmi, 400011<br>
+Contact number: +(91) 96060-47077
+
+<br></p>
+
+<form>
+                        <div>
+                            <input type="text" name="" required="">
+                            <label><i class="fas fa-user"></i><em> Name</em></label>
+                        </div>
+                        <div>
+                            <input type="email" name="" required="" onfocusout="checkEmail()" id="emailInt">
+                            <label><i class="fas fa-envelope"></i><em> E-mail</em></label>
+                        </div>
+                        <div>
+                            <input type="number" name="" required="" onfocusout="checkTel()" id="telInt">
+                            <label><i class="fas fa-phone"></i><em> Telephone</em></label>
+                        </div>
+                        <div>
+                            <textarea type="text" name="" required=""></textarea>
+                            <label><i class="fas fa-comment"></i><em> Message</em></label>
+                        </div>
+                        <button type="submit">Send <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+                <div id="footer">
+                    <div id="follow">
+                        <p><h3>Follow us</h3><br><a href="#" style="margin-right:15%"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#" style="margin-left:15%"><i class="fab fa-facebook-f"></i></a></p>
+                    </div>
+                    <p>Website<br>Copyright© 2020 all rights reserved</p>
+                </div>
+            </div>
+        </div>    
+    </body>
+</html>
